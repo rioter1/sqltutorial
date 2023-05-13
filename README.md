@@ -1,3 +1,7 @@
+# become root and install mysql-server
+sudo su  
+
+
 # Installation guidelines on Ubuntu
 
 sudo apt install mysql-server  
@@ -26,12 +30,29 @@ sudo mysqld_safe --skip-grant-tables &
 # start mysql
 sudo mysql   
 
+
 # now install mysql-workbench 
 sudo snap install mysql-workbench-community  
 
-# start workbench
-mysql-workbench-community  
+# connecting mysql-workbench-community with mysql-server installed on local machine
+# open mysql
+sudo mysql  
+# create a user (any username, herein we call it user) & a password (replace the word P@ssW0rd with password you want)
+mysql>CREATE USER 'user'@'localhost' IDENTIFIED BY 'P@ssW0rd';   
+# Give the created user all privileges
+GRANT ALL ON *.* TO 'user'@'localhost';   
+FLUSH PRIVILEGES;   
+
+# now start myworkbench
+mysql-workbench-community;  
+# go to mysql connection and press +
+# selecte standarf connction method TCP/IP and put username and password you used above
+# Test connection
 
 
+# Uninstalling mysql
+sudo apt-get remove --purge *mysql\*   
+sudo apt-get autoremove   
+sudo apt-get autoclean   
 
 
