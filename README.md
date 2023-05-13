@@ -1,5 +1,8 @@
 # become root and install mysql-server
 sudo su  
+apt install mysql-server  
+
+# OR if you do not wish to become root, may face below issues while installation
 
 
 # Installation guidelines on Ubuntu
