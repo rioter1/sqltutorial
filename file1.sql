@@ -7,15 +7,23 @@
 5. SQL Drop table
 */
 show databases;
-use information_schema;
+use performance_schema;
 show tables;
-select * from ENGINES;
+select * from users;
 
 create database customers;
-# drop database customers;
+#drop databse customers;
+use customers;
 
-# now after creating a databse, we need to create a table
 create table info(id integer, first_name varchar(10), last_name varchar(10));
 show tables;
 
+select * from info;
 
+insert into info(id, first_name, last_name) values('1', 'prateek', 'Sharma');
+
+drop table info;
+
+show tables;
+
+drop database customers;
